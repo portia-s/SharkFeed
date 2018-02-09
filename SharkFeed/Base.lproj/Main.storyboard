@@ -1,24 +1,247 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Launch View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LaunchViewController" customModule="SharkFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="gs8-iy-VP5">
+                                <rect key="frame" x="0.0" y="-28" width="375" height="694"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SharkFeed Logo" translatesAutoresizingMaskIntoConstraints="NO" id="aNt-uU-lZq">
+                                <rect key="frame" x="104.5" y="180" width="165" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Fk9-8i-X3y"/>
+                                    <constraint firstAttribute="width" constant="165" id="v4F-vI-noK"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SharkFeed" translatesAutoresizingMaskIntoConstraints="NO" id="Tcd-2F-9tS">
+                                <rect key="frame" x="107.5" y="295" width="160" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="Bpi-zM-pEb"/>
+                                    <constraint firstAttribute="height" constant="25" id="dQf-Kg-GiG"/>
+                                </constraints>
+                            </imageView>
+                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GJ-Lp-A1X">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7Y1-X4-5f0"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nYy-pL-aQX"/>
+                                    <barButtonItem title="Swipe to Start Feeding" id="HOo-d5-57A"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="l9E-wb-JVF"/>
+                                    <barButtonItem title="Item" image="Swipe_to_feed" id="OOv-6c-btE"/>
+                                </items>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nNV-Ab-UO0" appends="YES" id="6eS-9N-QTw"/>
+                                </connections>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="gs8-iy-VP5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AR5-fV-T7q"/>
+                            <constraint firstItem="gs8-iy-VP5" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="48" id="C8J-Zi-oX2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="gs8-iy-VP5" secondAttribute="top" constant="48" id="Gye-E2-QIA"/>
+                            <constraint firstItem="Tcd-2F-9tS" firstAttribute="top" secondItem="aNt-uU-lZq" secondAttribute="bottom" constant="40" id="IKR-7r-Gbs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gs8-iy-VP5" secondAttribute="trailing" id="ORZ-j9-E8e"/>
+                            <constraint firstItem="Tcd-2F-9tS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="QDO-lU-SqI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1GJ-Lp-A1X" secondAttribute="trailing" id="T80-3G-xyq"/>
+                            <constraint firstItem="1GJ-Lp-A1X" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="49" id="UrM-MK-ESu"/>
+                            <constraint firstItem="aNt-uU-lZq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tMQ-th-coH"/>
+                            <constraint firstItem="1GJ-Lp-A1X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wgv-JE-ZbG"/>
+                            <constraint firstItem="aNt-uU-lZq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="160" id="xuB-mw-joq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="co4-0Q-RJt" kind="show" identifier="swipedToGrid" animates="NO" id="78b-s0-AYh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="nNV-Ab-UO0">
+                    <connections>
+                        <outlet property="delegate" destination="1GJ-Lp-A1X" id="Esa-9B-0AN"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="-732" y="-190.25487256371815"/>
+        </scene>
+        <!--SharkFeed-->
+        <scene sceneID="w6h-ud-sHr">
+            <objects>
+                <collectionViewController id="ZCw-gi-Mf4" customClass="GridViewController" customModule="SharkFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="4Gv-qB-nfp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cGd-1y-9ox">
+                            <size key="itemSize" width="125" height="125"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridCell" id="fRh-Te-vAX" customClass="GridVCCell" customModule="SharkFeed" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xQr-Qa-Vku">
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="xQr-Qa-Vku" firstAttribute="top" secondItem="fRh-Te-vAX" secondAttribute="topMargin" constant="-8" id="E2b-Nw-6OL"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="xQr-Qa-Vku" secondAttribute="trailing" constant="-8" id="a6w-hC-GOx"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="xQr-Qa-Vku" secondAttribute="bottom" constant="-8" id="ahN-5t-Rd7"/>
+                                    <constraint firstItem="xQr-Qa-Vku" firstAttribute="leading" secondItem="fRh-Te-vAX" secondAttribute="leadingMargin" constant="-8" id="hIB-bV-NyJ"/>
+                                </constraints>
+                                <size key="customSize" width="125" height="125"/>
+                                <connections>
+                                    <outlet property="gridCellImageView" destination="xQr-Qa-Vku" id="XII-DA-9AX"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="ZCw-gi-Mf4" id="e20-fF-QcE"/>
+                            <outlet property="delegate" destination="ZCw-gi-Mf4" id="tQ3-xA-4Jh"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="SharkFeed" id="hkU-tZ-iCC"/>
+                    <connections>
+                        <outlet property="imageCollectionView" destination="4Gv-qB-nfp" id="NVf-PL-MCK"/>
+                        <segue destination="4Qk-b2-2Gk" kind="show" identifier="toDetailView" id="ifV-FS-o2Z"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Wz-Hj-KEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1112.8" y="89.505247376311857"/>
+        </scene>
+        <!--Lightbox View Controller-->
+        <scene sceneID="28W-cc-ySK">
+            <objects>
+                <viewController id="4Qk-b2-2Gk" customClass="LightboxViewController" customModule="SharkFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="olM-Tq-NIQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dm-Sn-Nxs">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="202-Bd-Sa3"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Download" image="Download" id="qCn-JD-8vl">
+                                        <connections>
+                                            <action selector="downloadButtonsPressed:" destination="4Qk-b2-2Gk" id="vFe-EK-wKD"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Download" id="Qkm-BF-266">
+                                        <connections>
+                                            <action selector="downloadButtonsPressed:" destination="4Qk-b2-2Gk" id="lM7-F0-8x3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WUV-Kj-lEY"/>
+                                    <barButtonItem title="Open in App" image="Open_in_flickr" id="Pzk-B1-3FG">
+                                        <connections>
+                                            <action selector="openInAppButtonsPressed:" destination="4Qk-b2-2Gk" id="us2-CW-0zw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Open in App" id="gcd-of-f00">
+                                        <connections>
+                                            <action selector="openInAppButtonsPressed:" destination="4Qk-b2-2Gk" id="Wdq-yn-vot"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Maw-II-rxQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ad5-Ev-jrB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ad5-Ev-jrB" firstAttribute="centerX" secondItem="Maw-II-rxQ" secondAttribute="centerX" id="3h0-ef-dtP"/>
+                                    <constraint firstAttribute="bottom" secondItem="ad5-Ev-jrB" secondAttribute="bottom" id="7pL-r6-uyT"/>
+                                    <constraint firstItem="ad5-Ev-jrB" firstAttribute="centerY" secondItem="Maw-II-rxQ" secondAttribute="centerY" id="9zG-yJ-t47"/>
+                                    <constraint firstAttribute="trailing" secondItem="ad5-Ev-jrB" secondAttribute="trailing" id="LUU-e3-1tY"/>
+                                    <constraint firstItem="ad5-Ev-jrB" firstAttribute="leading" secondItem="Maw-II-rxQ" secondAttribute="leading" id="NcF-yQ-B6F"/>
+                                    <constraint firstItem="ad5-Ev-jrB" firstAttribute="top" secondItem="Maw-II-rxQ" secondAttribute="top" id="X3Z-Na-hZ0"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="t6G-f5-o6o" firstAttribute="top" secondItem="Maw-II-rxQ" secondAttribute="top" constant="64" id="4mr-fg-tsa"/>
+                            <constraint firstItem="t6G-f5-o6o" firstAttribute="trailing" secondItem="Maw-II-rxQ" secondAttribute="trailing" id="DgY-bQ-0ev"/>
+                            <constraint firstItem="1dm-Sn-Nxs" firstAttribute="leading" secondItem="t6G-f5-o6o" secondAttribute="leading" id="DsV-Fa-LNP"/>
+                            <constraint firstItem="Maw-II-rxQ" firstAttribute="leading" secondItem="t6G-f5-o6o" secondAttribute="leading" id="MyG-OZ-l9X"/>
+                            <constraint firstItem="1dm-Sn-Nxs" firstAttribute="top" secondItem="Maw-II-rxQ" secondAttribute="bottom" id="PXb-ga-cRX"/>
+                            <constraint firstItem="t6G-f5-o6o" firstAttribute="trailing" secondItem="1dm-Sn-Nxs" secondAttribute="trailing" id="lZ0-WE-MDI"/>
+                            <constraint firstItem="t6G-f5-o6o" firstAttribute="bottom" secondItem="1dm-Sn-Nxs" secondAttribute="bottom" id="xTR-7e-yG4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="t6G-f5-o6o"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailScrollView" destination="Maw-II-rxQ" id="kAa-gG-44r"/>
+                        <outlet property="downloadButton" destination="Qkm-BF-266" id="F5d-rB-Fow"/>
+                        <outlet property="fullImageView" destination="ad5-Ev-jrB" id="cGz-ez-3Ae"/>
+                        <outlet property="openInAppButton" destination="gcd-of-f00" id="Omx-Wk-7SV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E3D-ph-6DO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1856.8" y="89.505247376311857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lpE-Vo-hCQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="co4-0Q-RJt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a0x-NM-Dyu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZCw-gi-Mf4" kind="relationship" relationship="rootViewController" id="eIi-Rt-R83"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H6n-ff-KwP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="-190"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Download" width="25" height="29"/>
+        <image name="LaunchScreen" width="824" height="1466"/>
+        <image name="Open_in_flickr" width="27" height="26"/>
+        <image name="SharkFeed" width="179" height="27"/>
+        <image name="SharkFeed Logo" width="181" height="85"/>
+        <image name="Swipe_to_feed" width="37" height="23"/>
+    </resources>
 </document>
