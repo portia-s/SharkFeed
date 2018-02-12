@@ -24,7 +24,7 @@ class GridViewController: UICollectionViewController, PhotoSearchDelegate, UICol
     //instance to access model for URLSessin & JSON Parsing
     var vcModel = PhotoSearchModel()
     
-    var customRefreshControlView: UIView!
+    //var customRefreshControlView: UIView!
     var hook: UIImageView!
     var fish: UIImageView!
     var refreshMessage : UILabel!
@@ -32,32 +32,28 @@ class GridViewController: UICollectionViewController, PhotoSearchDelegate, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-       // self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
         // Do any additional setup after loading the view.
         //setting self collectionView's datasource and delegate
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
+        
         //setting self to be model's delegate
         vcModel.delegate = self
         
+        //initialize arrays and bring the imageURLs
         vcModel.imageUrls = [String]()
         vcModel.fullImageUrls = [String]()
         vcModel.flickrImageSearchAPI(offset: vcModel.imageUrls.count)
-
+        
+        //setting up refresh control
         if #available(iOS 10.0, *) {
             imageCollectionView.refreshControl = refreshControl
         } else {
             imageCollectionView.addSubview(refreshControl)
         }
-        
+        refreshControl.tintColor = UIColor.clear
         refreshControl.addTarget(self, action: #selector(self.refreshData(sender:)), for: .valueChanged)
-       // loadCustomRefreshControlContents()
-        
+        loadCustomRefreshControlContents()
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,12 +65,10 @@ class GridViewController: UICollectionViewController, PhotoSearchDelegate, UICol
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return vcModel.imageUrls.count
     }
 
@@ -82,9 +76,9 @@ class GridViewController: UICollectionViewController, PhotoSearchDelegate, UICol
         // Configure the cell
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "gridCell", for: indexPath) as! GridVCCell
         DispatchQueue.main.async {
-            myCell.gridCellImageView.bringImageFromUrl(url: NSURL(string: self.vcModel.imageUrls[indexPath.row]))    //extension
-        //reFetch next set of urls as collectionView usesup* current set of images
+            myCell.gridCellImageView.bringImageFromUrl(url: NSURL(string: self.vcModel.imageUrls[indexPath.row]))
         }
+        //reFetch next set of urls as collectionView usesup* current set of images
         if vcModel.imageUrls.count - 1 <= indexPath.row {
             vcModel.flickrImageSearchAPI(offset: vcModel.imageUrls.count)
         }
@@ -95,7 +89,6 @@ class GridViewController: UICollectionViewController, PhotoSearchDelegate, UICol
         selectedIndex = indexPath.row
         performSegue(withIdentifier: "toDetailView", sender: self)
     }
-    // MARK: UICollectionViewDelegate
 
     // MARK: UICollectionViewDelegateFlowLayout methods
 
@@ -117,10 +110,7 @@ class GridViewController: UICollectionViewController, PhotoSearchDelegate, UICol
 
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
         if segue.identifier == "toDetailView" {
             let nextVC = segue.destination as! LightboxViewController
             nextVC.selectedImageUrl = NSURL(string: vcModel.fullImageUrls[selectedIndex])!
@@ -128,7 +118,6 @@ class GridViewController: UICollectionViewController, PhotoSearchDelegate, UICol
     }
 
     // MARK: - Helper functions
-
     
     func updateCollectionView() {
         DispatchQueue.main.async(execute: {
@@ -141,22 +130,21 @@ class GridViewController: UICollectionViewController, PhotoSearchDelegate, UICol
                 self.updateCollectionView()
                 refreshControl.endRefreshing()
             }
-        }
+    }
+    
     func loadCustomRefreshControlContents() {
-        customRefreshControlView = UIView(frame: refreshControl.bounds)
-        refreshControl.tintColor = UIColor.blue
-        hook = UIImageView(image: UIImage(named: "Pulltorefresh1@3x.png"))
-        fish = UIImageView(image: UIImage(named: "Pulltorefresh2@3x.png"))
-        //refreshMessage.text = "Pull to refresh sharks"
-        customRefreshControlView.addSubview(hook)
-        customRefreshControlView.addSubview(fish)
-        //customRefreshControlView.addSubview(refreshMessage)
-        self.customRefreshControlView.clipsToBounds = true
-        refreshControl.addSubview(customRefreshControlView)
+        
+        let refreshContents = Bundle.main.loadNibNamed("CustomRefreshControlView", owner: self, options: nil)
+        var customView =  refreshContents![0] as! UIView
+        customView.frame = refreshControl.bounds
+        refreshControl.addSubview(customView)
+        refreshControl.addTarget(self, action: #selector(self.refreshData(sender:)), for: .valueChanged)
     }
 
     override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
         updateCollectionView()
     }
+    
+    
     
 }

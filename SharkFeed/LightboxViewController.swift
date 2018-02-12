@@ -46,17 +46,17 @@ class LightboxViewController: UIViewController, UIScrollViewDelegate {
         return self.fullImageView
     }
     
-    //open image in flickr functionality
+    //open image in flickr
     @IBAction func openInAppButtonsPressed(_ sender: UIBarButtonItem) {
         UIApplication.shared.openURL(selectedImageUrl as URL)
     }
     
-    //save image to camera roll functionality
+    //save image to camera roll
     @IBAction func downloadButtonsPressed(_ sender: UIBarButtonItem) {
-        var imageToCameraRoll = fullImageView.bringImageFromUrl(url: selectedImageUrl)
-        //print("download image to camera roll")
-        LightboxImage(imageURL: selectedImageUrl as URL)
-
-       // UIImageWriteToSavedPhotosAlbum(imageToCameraRoll, nil, nil, nil)    //(bringImageFromUrl(url: selectedImageUrl), nil, nil, nil)
+        UIImageWriteToSavedPhotosAlbum(fullImageView.image!, nil, nil, nil)
+        let alert = UIAlertController(title: "Saved", message: "This image has been saved to camera roll.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }

@@ -13,11 +13,11 @@ class LaunchViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //Setup swipe gesture to go to next scene GridViewController
         let leftSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeLeft(gesture:)))
         leftSwipeRecognizer.direction = .left
         leftSwipeRecognizer.delegate = self
         self.view.addGestureRecognizer(leftSwipeRecognizer)
-        
 
     }
 
@@ -26,6 +26,7 @@ class LaunchViewController: UIViewController, UIGestureRecognizerDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    //Segue to GridViewController on swipe gesture
     @objc func swipeLeft(gesture : UISwipeGestureRecognizer) {
         performSegue(withIdentifier: "swipedToGrid", sender: self)
     }

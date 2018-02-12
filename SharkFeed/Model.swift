@@ -24,7 +24,7 @@ class PhotoSearchModel {
     
     //ImageSearch NSURLSession
     func flickrImageSearchAPI(offset: Int) {
-        let url = URL(string: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=949e98778755d1982f537d56236bbb42&text=shark&format=json&nojsoncallback=1&page=1&extras%20=url_t,url_c,url_l,url_o")!
+        let url = URL(string: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=949e98778755d1982f537d56236bbb42&text=whiteshark&format=json&nojsoncallback=1&page=1&extras%20=url_t,url_c,url_l,url_o")!
         let request = URLRequest(
                 url: url,
                 cachePolicy: .reloadIgnoringLocalCacheData,
@@ -45,10 +45,9 @@ class PhotoSearchModel {
                 }
             })
             task.resume()
-        //}
     }
     
-    //Parsing JSON to extract the urls and delegate ViewController to update collectionView
+    //Parsing JSON to extract the urls and delegate ViewController to load collectionView
     func extractDataFromResponse(data: Data) {
         if let itemDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary  {
             if let photos = itemDictionary["photos"] as? NSDictionary {

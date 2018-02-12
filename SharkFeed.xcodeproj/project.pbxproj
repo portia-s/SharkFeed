@@ -20,6 +20,7 @@
 		2D70F640202A9A1B00F09500 /* GridVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D70F63F202A9A1B00F09500 /* GridVCCell.swift */; };
 		2D70F642202ABA3A00F09500 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D70F641202ABA3A00F09500 /* Model.swift */; };
 		2D70F644202ABA5400F09500 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D70F643202ABA5400F09500 /* ViewModel.swift */; };
+		2DF0E7A72031326000360978 /* CustomRefreshControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DF0E7A62031326000360978 /* CustomRefreshControlView.xib */; };
 		6A10A6FF7BA1785AB34AF6E9 /* Pods_SharkFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C67CA30805A2F46876D279B /* Pods_SharkFeedTests.framework */; };
 		8C2A4F132BEDE28873751BE0 /* Pods_SharkFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F3CB2E140827A204DCBCB0 /* Pods_SharkFeed.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		2D70F63F202A9A1B00F09500 /* GridVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridVCCell.swift; sourceTree = "<group>"; };
 		2D70F641202ABA3A00F09500 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2D70F643202ABA5400F09500 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		2DF0E7A62031326000360978 /* CustomRefreshControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomRefreshControlView.xib; sourceTree = "<group>"; };
 		33207AC4F9EE2748D01413F7 /* Pods-SharkFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharkFeed.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharkFeed/Pods-SharkFeed.release.xcconfig"; sourceTree = "<group>"; };
 		4C67CA30805A2F46876D279B /* Pods_SharkFeedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkFeedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F3CB2E140827A204DCBCB0 /* Pods_SharkFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharkFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 				2D70F643202ABA5400F09500 /* ViewModel.swift */,
 				2D70F60F202A969D00F09500 /* LaunchViewController.swift */,
 				2D70F63B202A990200F09500 /* GridViewController.swift */,
+				2DF0E7A62031326000360978 /* CustomRefreshControlView.xib */,
 				2D70F63D202A992000F09500 /* LightboxViewController.swift */,
 				2D70F63F202A9A1B00F09500 /* GridVCCell.swift */,
 				2D70F611202A969D00F09500 /* Main.storyboard */,
@@ -299,6 +302,7 @@
 				2D70F618202A969D00F09500 /* LaunchScreen.storyboard in Resources */,
 				2D70F615202A969D00F09500 /* Assets.xcassets in Resources */,
 				2D70F613202A969D00F09500 /* Main.storyboard in Resources */,
+				2DF0E7A72031326000360978 /* CustomRefreshControlView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
